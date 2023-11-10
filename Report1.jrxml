@@ -46,7 +46,7 @@ FROM CLI_CITA c
 JOIN CLI_AGENDA a ON c.age_id = a.age_id
 JOIN CLI_MEDICO m ON a.med_id = m.med_id
 JOIN CLI_PACIENTE p ON c.pac_id = p.pac_id
-WHERE m.med_id = $P{id}]]>
+WHERE m.med_id = 1]]>
 		</queryString>
 		<field name="CIT_USUARIOREGISTRA" class="java.lang.String">
 			<property name="com.jaspersoft.studio.field.name" value="CIT_USUARIOREGISTRA"/>
@@ -88,7 +88,15 @@ WHERE m.med_id = $P{id}]]>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch"/>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="227" y="24" width="100" height="30" uuid="200a8172-a776-402a-aba2-f1684a46df3a"/>
+				<textElement textAlignment="Center">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Clinica UNA]]></text>
+			</staticText>
+		</band>
 	</title>
 	<pageHeader>
 		<band height="35" splitType="Stretch"/>
@@ -116,7 +124,7 @@ WHERE m.med_id = $P{id}]]>
 						<jr:columnHeader style="Table_CH" height="30">
 							<staticText>
 								<reportElement x="0" y="0" width="70" height="30" uuid="d097fc8f-daf7-4144-9555-cd7fb4dd3062"/>
-								<text><![CDATA[CIT_USUARIOREGISTRA]]></text>
+								<text><![CDATA[USUARIOREGISTRA]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:columnFooter style="Table_CH" height="30"/>
@@ -133,7 +141,7 @@ WHERE m.med_id = $P{id}]]>
 						<jr:columnHeader style="Table_CH" height="30">
 							<staticText>
 								<reportElement x="0" y="0" width="70" height="30" uuid="8011020b-1ad9-44d1-b814-cfa663dde8bd"/>
-								<text><![CDATA[CIT_MOTIVO]]></text>
+								<text><![CDATA[MOTIVO]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:columnFooter style="Table_CH" height="30"/>
@@ -150,7 +158,7 @@ WHERE m.med_id = $P{id}]]>
 						<jr:columnHeader style="Table_CH" height="30">
 							<staticText>
 								<reportElement x="0" y="0" width="70" height="30" uuid="6b02676c-4539-4eaa-b6d0-944820491548"/>
-								<text><![CDATA[CIT_FECHAHORA]]></text>
+								<text><![CDATA[FECHAHORA]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:columnFooter style="Table_CH" height="30"/>
@@ -167,7 +175,7 @@ WHERE m.med_id = $P{id}]]>
 						<jr:columnHeader style="Table_CH" height="30">
 							<staticText>
 								<reportElement x="0" y="0" width="69" height="30" uuid="65ebbf6b-bf4e-430c-b2d3-95168ae6d3f0"/>
-								<text><![CDATA[CIT_ESTADO]]></text>
+								<text><![CDATA[ESTADO]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:columnFooter style="Table_CH" height="30"/>
@@ -184,7 +192,7 @@ WHERE m.med_id = $P{id}]]>
 						<jr:columnHeader style="Table_CH" height="30">
 							<staticText>
 								<reportElement x="0" y="0" width="69" height="30" uuid="0ad9de5a-f500-4a66-8723-424d5bd71be6"/>
-								<text><![CDATA[CLI_CANTESPACIOS]]></text>
+								<text><![CDATA[CANTESPACIOS]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:columnFooter style="Table_CH" height="30"/>
@@ -201,7 +209,7 @@ WHERE m.med_id = $P{id}]]>
 						<jr:columnHeader style="Table_CH" height="30">
 							<staticText>
 								<reportElement x="0" y="0" width="69" height="30" uuid="5a335e82-6768-4308-92ac-f523c817c051"/>
-								<text><![CDATA[PAC_NOMBRE]]></text>
+								<text><![CDATA[NOMBRE]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:columnFooter style="Table_CH" height="30"/>
@@ -218,7 +226,7 @@ WHERE m.med_id = $P{id}]]>
 						<jr:columnHeader style="Table_CH" height="30">
 							<staticText>
 								<reportElement x="0" y="0" width="69" height="30" uuid="66b1c611-bbc6-4276-968d-26c702facedf"/>
-								<text><![CDATA[PAC_PAPELLIDO]]></text>
+								<text><![CDATA[PAPELLIDO]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:columnFooter style="Table_CH" height="30"/>
@@ -235,7 +243,7 @@ WHERE m.med_id = $P{id}]]>
 						<jr:columnHeader style="Table_CH" height="30">
 							<staticText>
 								<reportElement x="0" y="0" width="69" height="30" uuid="6c5c1993-4600-4959-9807-bd08299e33ce"/>
-								<text><![CDATA[PAC_CEDULA]]></text>
+								<text><![CDATA[CEDULA]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:columnFooter style="Table_CH" height="30"/>
@@ -254,7 +262,12 @@ WHERE m.med_id = $P{id}]]>
 		<band height="45" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="54" splitType="Stretch"/>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="455" y="24" width="100" height="30" uuid="15600701-5711-4a66-8db9-25d9522fe433"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
 	</pageFooter>
 	<summary>
 		<band height="42" splitType="Stretch"/>
