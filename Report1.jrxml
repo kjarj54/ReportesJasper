@@ -46,7 +46,7 @@ FROM CLI_CITA c
 JOIN CLI_AGENDA a ON c.age_id = a.age_id
 JOIN CLI_MEDICO m ON a.med_id = m.med_id
 JOIN CLI_PACIENTE p ON c.pac_id = p.pac_id
-WHERE m.med_id = 1]]>
+WHERE m.med_id = $P{id}]]>
 		</queryString>
 		<field name="CIT_USUARIOREGISTRA" class="java.lang.String">
 			<property name="com.jaspersoft.studio.field.name" value="CIT_USUARIOREGISTRA"/>
