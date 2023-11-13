@@ -122,8 +122,7 @@
 FROM
     CLI_ATENCION A
     JOIN CLI_EXPEDIENTE E ON A.exp_id = E.exp_id
-    JOIN CLI_PACIENTE P ON E.pac_id = P.pac_id
-]]>
+    JOIN CLI_PACIENTE P ON E.pac_id = P.pac_id]]>
 		</queryString>
 		<field name="ATE_ID" class="java.math.BigDecimal">
 			<property name="com.jaspersoft.studio.field.name" value="ATE_ID"/>
@@ -337,17 +336,18 @@ WHERE
 		<queryString language="SQL">
 			<![CDATA[SELECT
     EXA.exa_id ,
-    EXA.exa_nombre ,
-    EXA.exa_fecha,
+    EXA.exa_nombre  ,
+    EXA.exa_fecha  ,
     EXA.exa_anotacionesmed ,
-    EXA.exa_version 
+    EXA.exa_version
 FROM
     CLI_EXAMEN EXA
-    JOIN CLI_ATENCION ATE ON EXA.ate_id = ATE.ate_id
-    JOIN CLI_EXPEDIENTE EXP ON ATE.exp_id = EXP.exp_id
+    LEFT JOIN CLI_ATENCION ATE ON EXA.ate_id = ATE.ate_id
+    JOIN CLI_EXPEDIENTE EXP ON COALESCE(ATE.exp_id, EXA.exp_id) = EXP.exp_id
     JOIN CLI_PACIENTE PAC ON EXP.pac_id = PAC.pac_id
 WHERE
-    PAC.pac_id =$P{pacId}]]>
+    PAC.pac_id = 1
+    AND (ATE.ate_id IS NOT NULL OR EXA.ate_id IS NULL)]]>
 		</queryString>
 		<field name="EXA_ID" class="java.math.BigDecimal">
 			<property name="com.jaspersoft.studio.field.name" value="EXA_ID"/>
@@ -407,8 +407,7 @@ FROM
     JOIN CLI_EXPEDIENTE E ON A.exp_id = E.exp_id
     JOIN CLI_PACIENTE P ON E.pac_id = P.pac_id
     WHERE
-    P.pac_id = $P{pacId}
-]]>
+    P.pac_id = $P{pacId}]]>
 	</queryString>
 	<field name="ATE_ID" class="java.math.BigDecimal">
 		<property name="com.jaspersoft.studio.field.name" value="ATE_ID"/>
@@ -829,60 +828,71 @@ FROM
 				<text><![CDATA[Grafico IMC]]></text>
 			</staticText>
 			<componentElement>
-				<reportElement x="290" y="360" width="200" height="70" uuid="7362bea0-0bf0-43ba-8f25-4eff3f992083">
+				<reportElement x="270" y="350" width="240" height="70" uuid="7362bea0-0bf0-43ba-8f25-4eff3f992083">
 					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
 					<property name="com.jaspersoft.studio.table.style.table_header" value="Table 2_TH"/>
 					<property name="com.jaspersoft.studio.table.style.column_header" value="Table 2_CH"/>
 					<property name="com.jaspersoft.studio.table.style.detail" value="Table 2_TD"/>
+					<property name="com.jaspersoft.studio.components.autoresize.proportional" value="true"/>
 				</reportElement>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="ExamenesDataSet" uuid="c9ffd20e-898e-4f12-a41a-eaeb5ea65fec">
+						<datasetParameter name="pacId">
+							<datasetParameterExpression><![CDATA[$P{pacId}]]></datasetParameterExpression>
+						</datasetParameter>
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					</datasetRun>
-					<jr:column width="66" uuid="12b8ef0d-294d-4302-8d8c-82202710b02c">
+					<jr:column width="80" uuid="12b8ef0d-294d-4302-8d8c-82202710b02c">
 						<jr:columnHeader style="Table 2_CH" height="30">
 							<staticText>
-								<reportElement x="0" y="0" width="66" height="30" uuid="8a10c71b-54df-4f77-a367-8f42deec2969"/>
+								<reportElement x="0" y="0" width="80" height="30" uuid="8a10c71b-54df-4f77-a367-8f42deec2969"/>
 								<text><![CDATA[NOMBRE]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="Table 2_TD" height="30">
 							<textField>
-								<reportElement x="0" y="0" width="66" height="30" uuid="03c622d1-7286-4548-883f-be1941796d80"/>
+								<reportElement x="0" y="0" width="80" height="30" uuid="03c622d1-7286-4548-883f-be1941796d80"/>
 								<textFieldExpression><![CDATA[$F{EXA_NOMBRE}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="66" uuid="8bf988fe-5789-4e6c-8424-f7ea0d948e87">
+					<jr:column width="80" uuid="8bf988fe-5789-4e6c-8424-f7ea0d948e87">
 						<jr:columnHeader style="Table 2_CH" height="30">
 							<staticText>
-								<reportElement x="0" y="0" width="66" height="30" uuid="84b5a8ba-cdb5-4f71-ad60-27264531bacd"/>
+								<reportElement x="0" y="0" width="80" height="30" uuid="84b5a8ba-cdb5-4f71-ad60-27264531bacd"/>
 								<text><![CDATA[FECHA]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="Table 2_TD" height="30">
 							<textField>
-								<reportElement x="0" y="0" width="66" height="30" uuid="d4383a79-e9df-4ad7-8ea1-a747b2b8a64d"/>
+								<reportElement x="0" y="0" width="80" height="30" uuid="d4383a79-e9df-4ad7-8ea1-a747b2b8a64d"/>
 								<textFieldExpression><![CDATA[$F{EXA_FECHA}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="66" uuid="d371e34d-487d-4523-985f-9475321b9184">
+					<jr:column width="80" uuid="d371e34d-487d-4523-985f-9475321b9184">
 						<jr:columnHeader style="Table 2_CH" height="30">
 							<staticText>
-								<reportElement x="0" y="0" width="66" height="30" uuid="6cf05cdc-28f3-4eea-a776-27f1a2280370"/>
+								<reportElement x="0" y="0" width="80" height="30" uuid="6cf05cdc-28f3-4eea-a776-27f1a2280370"/>
 								<text><![CDATA[ANOTACIONESMED]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="Table 2_TD" height="30">
 							<textField>
-								<reportElement x="0" y="0" width="66" height="30" uuid="34861f06-2482-4958-8596-5d6e73a9b42a"/>
+								<reportElement x="0" y="0" width="80" height="30" uuid="34861f06-2482-4958-8596-5d6e73a9b42a"/>
 								<textFieldExpression><![CDATA[$F{EXA_ANOTACIONESMED}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
 				</jr:table>
 			</componentElement>
+			<staticText>
+				<reportElement x="300" y="310" width="160" height="30" uuid="3c21669d-a7e8-4fd3-8ba5-d4c79dba464b"/>
+				<textElement textAlignment="Center">
+					<font size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Examenes]]></text>
+			</staticText>
 		</band>
 	</detail>
 	<columnFooter>
