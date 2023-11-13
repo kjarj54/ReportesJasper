@@ -668,20 +668,13 @@ FROM
 		</band>
 	</title>
 	<pageHeader>
-		<band height="40" splitType="Stretch">
+		<band height="45" splitType="Stretch">
 			<staticText>
 				<reportElement x="0" y="0" width="100" height="30" uuid="1f8a55b2-77b5-4291-addc-59ce2cad8aa2"/>
 				<text><![CDATA[]]></text>
 			</staticText>
-		</band>
-	</pageHeader>
-	<columnHeader>
-		<band height="61" splitType="Stretch"/>
-	</columnHeader>
-	<detail>
-		<band height="468" splitType="Stretch">
 			<componentElement>
-				<reportElement x="0" y="0" width="555" height="60" uuid="9d07a001-bad7-43e4-ac39-e34caee6e90d">
+				<reportElement x="0" y="-15" width="555" height="60" uuid="9d07a001-bad7-43e4-ac39-e34caee6e90d">
 					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
 					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
 					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
@@ -817,8 +810,15 @@ FROM
 					</jr:column>
 				</jr:table>
 			</componentElement>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="426" splitType="Stretch">
 			<componentElement>
-				<reportElement x="0" y="100" width="220" height="60" uuid="567b99c8-d60e-4589-94b1-e74ed20022d7">
+				<reportElement x="0" y="30" width="220" height="60" uuid="567b99c8-d60e-4589-94b1-e74ed20022d7">
 					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
 					<property name="com.jaspersoft.studio.table.style.table_header" value="Table 1_TH"/>
 					<property name="com.jaspersoft.studio.table.style.column_header" value="Table 1_CH"/>
@@ -889,7 +889,7 @@ FROM
 				</jr:table>
 			</componentElement>
 			<staticText>
-				<reportElement x="0" y="70" width="220" height="30" uuid="fdbfc39e-f9c4-41f7-9371-dc8dfd8fbd0d"/>
+				<reportElement x="0" y="0" width="220" height="30" uuid="fdbfc39e-f9c4-41f7-9371-dc8dfd8fbd0d"/>
 				<textElement textAlignment="Center">
 					<font size="22" isBold="true"/>
 				</textElement>
@@ -897,7 +897,7 @@ FROM
 			</staticText>
 			<lineChart>
 				<chart evaluationTime="Report">
-					<reportElement x="240" y="100" width="304" height="200" uuid="4b588e4a-62c3-4951-b8e5-e542bd76fece"/>
+					<reportElement x="240" y="30" width="304" height="200" uuid="4b588e4a-62c3-4951-b8e5-e542bd76fece"/>
 					<chartTitle/>
 					<chartSubtitle/>
 					<chartLegend/>
@@ -924,14 +924,14 @@ FROM
 				</linePlot>
 			</lineChart>
 			<staticText>
-				<reportElement x="310" y="70" width="160" height="30" uuid="352fda74-178d-4de1-a17c-0c82258424e6"/>
+				<reportElement x="310" y="0" width="160" height="30" uuid="352fda74-178d-4de1-a17c-0c82258424e6"/>
 				<textElement textAlignment="Center">
 					<font size="22" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Grafico IMC]]></text>
 			</staticText>
 			<componentElement>
-				<reportElement x="0" y="260" width="240" height="70" uuid="7362bea0-0bf0-43ba-8f25-4eff3f992083">
+				<reportElement x="0" y="180" width="240" height="70" uuid="7362bea0-0bf0-43ba-8f25-4eff3f992083">
 					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
 					<property name="com.jaspersoft.studio.table.style.table_header" value="Table 2_TH"/>
 					<property name="com.jaspersoft.studio.table.style.column_header" value="Table 2_CH"/>
@@ -990,14 +990,14 @@ FROM
 				</jr:table>
 			</componentElement>
 			<staticText>
-				<reportElement x="30" y="200" width="160" height="30" uuid="3c21669d-a7e8-4fd3-8ba5-d4c79dba464b"/>
+				<reportElement x="30" y="120" width="160" height="30" uuid="3c21669d-a7e8-4fd3-8ba5-d4c79dba464b"/>
 				<textElement textAlignment="Center">
 					<font size="22" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Examenes]]></text>
 			</staticText>
 			<componentElement>
-				<reportElement x="0" y="370" width="555" height="70" uuid="1e34b415-f0d9-42bc-b3ad-397c03d7ff0f">
+				<reportElement x="0" y="300" width="555" height="70" uuid="1e34b415-f0d9-42bc-b3ad-397c03d7ff0f">
 					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
 					<property name="com.jaspersoft.studio.table.style.table_header" value="Table 3_TH"/>
 					<property name="com.jaspersoft.studio.table.style.column_header" value="Table 3_CH"/>
@@ -1182,7 +1182,7 @@ FROM
 				</jr:table>
 			</componentElement>
 			<staticText>
-				<reportElement x="210" y="330" width="100" height="30" uuid="253f8176-648b-4ec7-a90d-f2af26e5ebb1"/>
+				<reportElement x="210" y="260" width="100" height="30" uuid="253f8176-648b-4ec7-a90d-f2af26e5ebb1"/>
 				<textElement textAlignment="Center">
 					<font size="16" isBold="true"/>
 				</textElement>
