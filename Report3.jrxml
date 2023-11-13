@@ -66,7 +66,10 @@ WHERE u.usu_id = $P{usuid}]]>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch">
+		<band height="87" splitType="Stretch">
+			<rectangle>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="87" forecolor="#911210" backcolor="#BF979A" uuid="735dd60a-9c8a-4caf-b0cc-ce644f5fc6d9"/>
+			</rectangle>
 			<staticText>
 				<reportElement x="201" y="24" width="153" height="30" uuid="5076cfb3-83b8-41bd-ab8f-d0e2493a721d"/>
 				<textElement textAlignment="Center">
