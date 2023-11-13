@@ -84,6 +84,33 @@
 			<rightPen lineWidth="0.5" lineColor="#000000"/>
 		</box>
 	</style>
+	<style name="Table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
 	<subDataset name="DataSetExpedientesAtenciones" uuid="9de22b66-ee43-448f-a33e-de7cf60701f1">
 		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ClinicaUNA"/>
 		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
@@ -368,6 +395,82 @@ WHERE
 		<field name="EXA_VERSION" class="java.math.BigDecimal">
 			<property name="com.jaspersoft.studio.field.name" value="EXA_VERSION"/>
 			<property name="com.jaspersoft.studio.field.label" value="EXA_VERSION"/>
+		</field>
+	</subDataset>
+	<subDataset name="Dataset1" uuid="fece4292-e135-48ed-a88d-c8f6fafdd8db">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ClinicaUNA"/>
+		<parameter name="pacId" class="java.lang.Long"/>
+		<queryString language="SQL">
+			<![CDATA[SELECT
+    A.ate_fechahora,
+    A.ate_presion,
+    A.ate_frecuenciacard,
+    A.ate_peso,
+    A.ate_talla,
+    A.ate_temperatura,
+    A.ate_imc,
+    A.ate_anotacionenfe,
+    A.ate_razonconsulta,
+    A.ate_planatencion,
+    A.ate_observaciones,
+    A.ate_tratamiento
+FROM
+    CLI_ATENCION A
+INNER JOIN
+    CLI_EXPEDIENTE E ON A.exp_id = E.exp_id
+INNER JOIN
+    CLI_PACIENTE P ON E.pac_id = P.pac_id
+WHERE
+    P.pac_id = $P{pacId}]]>
+		</queryString>
+		<field name="ATE_FECHAHORA" class="java.sql.Timestamp">
+			<property name="com.jaspersoft.studio.field.name" value="ATE_FECHAHORA"/>
+			<property name="com.jaspersoft.studio.field.label" value="ATE_FECHAHORA"/>
+		</field>
+		<field name="ATE_PRESION" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="ATE_PRESION"/>
+			<property name="com.jaspersoft.studio.field.label" value="ATE_PRESION"/>
+		</field>
+		<field name="ATE_FRECUENCIACARD" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="ATE_FRECUENCIACARD"/>
+			<property name="com.jaspersoft.studio.field.label" value="ATE_FRECUENCIACARD"/>
+		</field>
+		<field name="ATE_PESO" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="ATE_PESO"/>
+			<property name="com.jaspersoft.studio.field.label" value="ATE_PESO"/>
+		</field>
+		<field name="ATE_TALLA" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="ATE_TALLA"/>
+			<property name="com.jaspersoft.studio.field.label" value="ATE_TALLA"/>
+		</field>
+		<field name="ATE_TEMPERATURA" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="ATE_TEMPERATURA"/>
+			<property name="com.jaspersoft.studio.field.label" value="ATE_TEMPERATURA"/>
+		</field>
+		<field name="ATE_IMC" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="ATE_IMC"/>
+			<property name="com.jaspersoft.studio.field.label" value="ATE_IMC"/>
+		</field>
+		<field name="ATE_ANOTACIONENFE" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="ATE_ANOTACIONENFE"/>
+			<property name="com.jaspersoft.studio.field.label" value="ATE_ANOTACIONENFE"/>
+		</field>
+		<field name="ATE_RAZONCONSULTA" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="ATE_RAZONCONSULTA"/>
+			<property name="com.jaspersoft.studio.field.label" value="ATE_RAZONCONSULTA"/>
+		</field>
+		<field name="ATE_PLANATENCION" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="ATE_PLANATENCION"/>
+			<property name="com.jaspersoft.studio.field.label" value="ATE_PLANATENCION"/>
+		</field>
+		<field name="ATE_OBSERVACIONES" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="ATE_OBSERVACIONES"/>
+			<property name="com.jaspersoft.studio.field.label" value="ATE_OBSERVACIONES"/>
+		</field>
+		<field name="ATE_TRATAMIENTO" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="ATE_TRATAMIENTO"/>
+			<property name="com.jaspersoft.studio.field.label" value="ATE_TRATAMIENTO"/>
 		</field>
 	</subDataset>
 	<parameter name="pacId" class="java.lang.Long"/>
@@ -828,7 +931,7 @@ FROM
 				<text><![CDATA[Grafico IMC]]></text>
 			</staticText>
 			<componentElement>
-				<reportElement x="270" y="350" width="240" height="70" uuid="7362bea0-0bf0-43ba-8f25-4eff3f992083">
+				<reportElement x="0" y="260" width="240" height="70" uuid="7362bea0-0bf0-43ba-8f25-4eff3f992083">
 					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
 					<property name="com.jaspersoft.studio.table.style.table_header" value="Table 2_TH"/>
 					<property name="com.jaspersoft.studio.table.style.column_header" value="Table 2_CH"/>
@@ -887,11 +990,203 @@ FROM
 				</jr:table>
 			</componentElement>
 			<staticText>
-				<reportElement x="300" y="310" width="160" height="30" uuid="3c21669d-a7e8-4fd3-8ba5-d4c79dba464b"/>
+				<reportElement x="30" y="200" width="160" height="30" uuid="3c21669d-a7e8-4fd3-8ba5-d4c79dba464b"/>
 				<textElement textAlignment="Center">
 					<font size="22" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Examenes]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="0" y="370" width="555" height="70" uuid="1e34b415-f0d9-42bc-b3ad-397c03d7ff0f">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table 3_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table 3_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table 3_TD"/>
+					<property name="com.jaspersoft.studio.components.autoresize.proportional" value="true"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Dataset1" uuid="f921a105-a21f-41c9-a8fc-224f1adb47a4">
+						<datasetParameter name="pacId">
+							<datasetParameterExpression><![CDATA[$P{pacId}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="47" uuid="5167ee0c-0729-4adb-a7e5-ceb3649beab5">
+						<jr:columnHeader style="Table 3_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="47" height="30" uuid="5dd06097-2ae1-4bc1-823f-caa903a61d11"/>
+								<text><![CDATA[FECHAHORA]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 3_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="47" height="30" uuid="4799e044-f27e-4d5e-bdcd-835e17dfce9b"/>
+								<textFieldExpression><![CDATA[$F{ATE_FECHAHORA}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="47" uuid="48dac54a-7162-423b-891f-54b873b15231">
+						<jr:columnHeader style="Table 3_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="47" height="30" uuid="f1df8280-434a-4208-9d76-9b1fe209395e"/>
+								<text><![CDATA[PRESION]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 3_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="47" height="30" uuid="344fe718-5909-4bbd-b1e4-f7ccce29a605"/>
+								<textFieldExpression><![CDATA[$F{ATE_PRESION}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="47" uuid="4c95ec29-8300-4f36-9d7d-ac136f64ec01">
+						<jr:columnHeader style="Table 3_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="47" height="30" uuid="ec69aa2c-ea37-422b-b054-bf56b5733c49"/>
+								<text><![CDATA[FRECUENCIACARD]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 3_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="47" height="30" uuid="830177ef-372f-467d-83db-4c45a55ffa4a"/>
+								<textFieldExpression><![CDATA[$F{ATE_FRECUENCIACARD}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="47" uuid="e8d36c19-aef3-4994-9d85-4ce19dbc69fa">
+						<jr:columnHeader style="Table 3_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="47" height="30" uuid="2f9fcff9-1578-4c74-9518-8d5946fea6ba"/>
+								<text><![CDATA[PESO]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 3_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="47" height="30" uuid="e1c147bb-ac91-4001-a298-03eab5b3632d"/>
+								<textFieldExpression><![CDATA[$F{ATE_PESO}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="47" uuid="77df3d5d-6990-4d40-98fd-3e223b2f09e3">
+						<jr:columnHeader style="Table 3_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="47" height="30" uuid="869c75ef-f22a-48d6-be3f-88cb2719967c"/>
+								<text><![CDATA[TALLA]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 3_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="47" height="30" uuid="aad1cdfb-90cb-438c-a60c-e6fc09fff454"/>
+								<textFieldExpression><![CDATA[$F{ATE_TALLA}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="46" uuid="14ced6d5-eca2-48b0-98d4-063b210206d2">
+						<jr:columnHeader style="Table 3_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="46" height="30" uuid="24126de9-01ca-4785-b31c-785fc771bcd4"/>
+								<text><![CDATA[TEMPERATURA]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 3_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="46" height="30" uuid="bb3d2dc6-a37d-4386-96e5-b5757e2f2bca"/>
+								<textFieldExpression><![CDATA[$F{ATE_TEMPERATURA}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="46" uuid="554a17fe-76ae-44a8-b851-ab2e3358880e">
+						<jr:columnHeader style="Table 3_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="46" height="30" uuid="b4dee7ff-0f1a-468c-8465-5717a6cfbc25"/>
+								<text><![CDATA[IMC]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 3_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="46" height="30" uuid="ed847154-96b0-43bb-b54a-00acb35b195d"/>
+								<textFieldExpression><![CDATA[$F{ATE_IMC}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="46" uuid="f9014dd3-d65f-44fd-ad81-43babde67a7f">
+						<jr:columnHeader style="Table 3_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="46" height="30" uuid="90436f69-ac63-4fbe-8086-d31d752104de"/>
+								<text><![CDATA[ANOTACIONENFE]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 3_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="46" height="30" uuid="e102ed1e-d5eb-4b1c-b9cb-db2f490e9e40"/>
+								<textFieldExpression><![CDATA[$F{ATE_ANOTACIONENFE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="46" uuid="703741bb-12ea-4390-81e9-b8c56781e77a">
+						<jr:columnHeader style="Table 3_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="46" height="30" uuid="54ee335e-d013-48da-847f-4a504e80dd44"/>
+								<text><![CDATA[RAZONCONSULTA]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 3_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="46" height="30" uuid="6e0264cd-0799-4203-a742-2e6cabc9e9de"/>
+								<textFieldExpression><![CDATA[$F{ATE_RAZONCONSULTA}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="46" uuid="359b9f36-3466-48d2-9b72-f50990d62b0e">
+						<jr:columnHeader style="Table 3_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="46" height="30" uuid="28b551d8-2e71-4195-a247-9d613d002dbf"/>
+								<text><![CDATA[PLANATENCION]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 3_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="46" height="30" uuid="b1347919-30b5-451f-b896-38049537fccf"/>
+								<textFieldExpression><![CDATA[$F{ATE_PLANATENCION}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="46" uuid="d9e78759-d0b7-443f-90c9-d67036df3baf">
+						<jr:columnHeader style="Table 3_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="46" height="30" uuid="31c0cf19-cff4-43ba-97ae-df4b91113578"/>
+								<text><![CDATA[OBSERVACIONES]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 3_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="46" height="30" uuid="01c7db37-bd84-4b0a-aee8-20f387119528"/>
+								<textFieldExpression><![CDATA[$F{ATE_OBSERVACIONES}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="44" uuid="3a4de4dd-87f8-41b1-931e-5a6c097d1596">
+						<jr:columnHeader style="Table 3_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="44" height="30" uuid="111a5a41-8f6a-4db8-8314-bbb110bd775f"/>
+								<text><![CDATA[TRATAMIENTO]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 3_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="44" height="30" uuid="d3609eb5-584e-491a-b1e1-25878e9ffd33"/>
+								<textFieldExpression><![CDATA[$F{ATE_TRATAMIENTO}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement x="210" y="330" width="100" height="30" uuid="253f8176-648b-4ec7-a90d-f2af26e5ebb1"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Atenciones]]></text>
 			</staticText>
 		</band>
 	</detail>
