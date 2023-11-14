@@ -1090,11 +1090,19 @@ WHERE
 		</band>
 	</detail>
 	<pageFooter>
-		<band height="32" splitType="Stretch">
+		<band height="33" splitType="Stretch">
 			<textField>
 				<reportElement x="455" y="0" width="100" height="30" uuid="252749fe-18bf-4549-9444-0993f22c1c07"/>
 				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="30" uuid="295e5f6c-419c-4f97-a4b6-c16dbded1c7c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[
+® UNA, EvaComUNA 2023]]></text>
+			</staticText>
 		</band>
 	</pageFooter>
 </jasperReport>
