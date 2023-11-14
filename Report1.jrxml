@@ -141,7 +141,7 @@ WHERE t.med_id = $P{usuid}]]>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="90" splitType="Stretch">
+		<band height="141" splitType="Stretch">
 			<rectangle>
 				<reportElement mode="Opaque" x="0" y="0" width="555" height="87" forecolor="#911210" backcolor="#BF979A" uuid="a2032deb-d27e-4f7d-bb35-71df5f3b7319"/>
 			</rectangle>
@@ -168,28 +168,27 @@ WHERE t.med_id = $P{usuid}]]>
 				</textElement>
 				<textFieldExpression><![CDATA["Reporte del: "+ new String($P{fechainicial}.toString())+", hasta el  "+new  String($P{fechafin}.toString())]]></textFieldExpression>
 			</textField>
-		</band>
-	</title>
-	<pageHeader>
-		<band height="46" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="0" width="227" height="46" uuid="2ab02770-a49d-45ee-a78d-3c859acc496a"/>
-				<textElement>
-					<font size="12" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA["ID del medico: "+new String($F{MED_ID}.toString())]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="310" y="0" width="245" height="46" uuid="9d8bdb8b-2397-4b3b-9697-e723f35886aa"/>
+				<reportElement x="310" y="87" width="245" height="46" uuid="9d8bdb8b-2397-4b3b-9697-e723f35886aa"/>
 				<textElement>
 					<font size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Codigo del medico: "+new String($F{MED_CODIGO})]]></textFieldExpression>
 			</textField>
+			<textField>
+				<reportElement x="0" y="87" width="227" height="46" uuid="2ab02770-a49d-45ee-a78d-3c859acc496a"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ID del medico: "+new String($F{MED_ID}.toString())]]></textFieldExpression>
+			</textField>
 		</band>
+	</title>
+	<pageHeader>
+		<band height="33" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="61" splitType="Stretch"/>
+		<band height="31" splitType="Stretch"/>
 	</columnHeader>
 	<detail>
 		<band height="378" splitType="Stretch">
